@@ -21,7 +21,6 @@ importers:
       kolorist: ^1.5.1
       lodash: ^4.17.21
       npm-run-all: ^4.1.5
-      pinia: ^2.0.13
       rimraf: ^3.0.2
       rollup-plugin-copy: ^3.4.0
       typescript: ^4.6.3
@@ -30,9 +29,8 @@ importers:
       vue: ^3.2.31
       webextension-polyfill: ^0.9.0
     dependencies:
-      '@softomate/core-module': link:../../../core-module
+      '@softomate/core-module': 2.0.0-rc.1
       lodash: 4.17.21
-      pinia: 2.0.13_typescript@4.6.3+vue@3.2.31
       vue: 3.2.31
     devDependencies:
       '@antfu/eslint-config': 0.18.8_eslint@7.32.0+typescript@4.6.3
@@ -53,12 +51,6 @@ importers:
       unplugin-vue-components: 0.18.5_vite@2.9.1+vue@3.2.31
       vite: 2.9.1
       webextension-polyfill: 0.9.0
-
-  apps/delay-fetch-server:
-    specifiers:
-      http: ^0.0.1-security
-    dependencies:
-      http: 0.0.1-security
 
 packages:
 
@@ -249,6 +241,13 @@ packages:
       estree-walker: 2.0.2
       picomatch: 2.3.1
     dev: true
+
+  /@softomate/core-module/2.0.0-rc.1:
+    resolution: {integrity: sha512-EOtRfAqbNQMTOSc+wugraaEmcUaVp+psXxzu4FjJEuwq78E8zE+xTvPYVz2hqMTcJKRxAkZ3/3/MCDZr0Ulcig==, tarball: '@softomate/core-module/-/@softomate/core-module-2.0.0-rc.1.tgz'}
+    dependencies:
+      lodash.merge: 4.6.2
+      lodash.throttle: 4.1.1
+    dev: false
 
   /@types/chrome/0.0.180:
     resolution: {integrity: sha512-A/CuuKAaHq2CHEpYBAtl0lp2ib7TTXK7VjJI4q+c+1U/HDvZLJ8IlsdEDzzHdvkNdh36bGONxrMnO9YZrKqbAw==}
@@ -501,10 +500,6 @@ packages:
     dependencies:
       '@vue/compiler-dom': 3.2.31
       '@vue/shared': 3.2.31
-    dev: false
-
-  /@vue/devtools-api/6.1.4:
-    resolution: {integrity: sha512-IiA0SvDrJEgXvVxjNkHPFfDx6SXw0b/TUkqMcDZWNg9fnCAHbTpoo59YfJ9QLFkwa3raau5vSlRVzMSLDnfdtQ==}
     dev: false
 
   /@vue/reactivity-transform/3.2.31:
@@ -1803,10 +1798,6 @@ packages:
       entities: 3.0.1
     dev: true
 
-  /http/0.0.1-security:
-    resolution: {integrity: sha512-RnDvP10Ty9FxqOtPZuxtebw1j4L/WiqNMDtuc1YMH1XQm5TgDRaR1G9u8upL6KD1bXHSp9eSXo/ED+8Q7FAr+g==}
-    dev: false
-
   /ignore/4.0.6:
     resolution: {integrity: sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg==}
     engines: {node: '>= 4'}
@@ -2118,7 +2109,10 @@ packages:
 
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
-    dev: true
+
+  /lodash.throttle/4.1.1:
+    resolution: {integrity: sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=}
+    dev: false
 
   /lodash.truncate/4.4.2:
     resolution: {integrity: sha1-WjUNoLERO4N+z//VgSy+WNbq4ZM=}
@@ -2483,24 +2477,6 @@ packages:
     resolution: {integrity: sha1-5aSs0sEB/fPZpNB/DbxNtJ3SgXY=}
     engines: {node: '>=4'}
     dev: true
-
-  /pinia/2.0.13_typescript@4.6.3+vue@3.2.31:
-    resolution: {integrity: sha512-B7rSqm1xNpwcPMnqns8/gVBfbbi7lWTByzS6aPZ4JOXSJD4Y531rZHDCoYWBwLyHY/8hWnXljgiXp6rRyrofcw==}
-    peerDependencies:
-      '@vue/composition-api': ^1.4.0
-      typescript: '>=4.4.4'
-      vue: ^2.6.14 || ^3.2.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
-      typescript:
-        optional: true
-    dependencies:
-      '@vue/devtools-api': 6.1.4
-      typescript: 4.6.3
-      vue: 3.2.31
-      vue-demi: 0.12.5_vue@3.2.31
-    dev: false
 
   /pluralize/8.0.0:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
@@ -3054,21 +3030,6 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
-
-  /vue-demi/0.12.5_vue@3.2.31:
-    resolution: {integrity: sha512-BREuTgTYlUr0zw0EZn3hnhC3I6gPWv+Kwh4MCih6QcAeaTlaIX0DwOVN0wHej7hSvDPecz4jygy/idsgKfW58Q==}
-    engines: {node: '>=12'}
-    hasBin: true
-    requiresBuild: true
-    peerDependencies:
-      '@vue/composition-api': ^1.0.0-rc.1
-      vue: ^3.0.0-0 || ^2.6.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
-    dependencies:
-      vue: 3.2.31
-    dev: false
 
   /vue-eslint-parser/8.3.0_eslint@7.32.0:
     resolution: {integrity: sha512-dzHGG3+sYwSf6zFBa0Gi9ZDshD7+ad14DGOdTLjruRVgZXe2J+DcZ9iUhyR48z5g1PqRa20yt3Njna/veLJL/g==}
