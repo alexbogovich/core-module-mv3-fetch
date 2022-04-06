@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "ESNext",
+    "target": "ESNext",
+    "lib": ["DOM", "ESNext"],
+    "strict": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "incremental": false,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitThis": true,
+
+    "types": [
+      "vite/client",
+      "unplugin-icons/types/vue",
+      "chrome",
+      "lodash",
+      "graphql",
+      "pinia/types/vue"
+    ],
+    "paths": {
+      "~/*": ["src/*"]
+    }
+  },
+  "exclude": ["dist", "app",
+    "node_modules"]
+}

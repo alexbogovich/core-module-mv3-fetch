@@ -1,0 +1,55 @@
+{
+  "name": "Fetch sample",
+  "version": "0.0.1",
+  "description": "Fetch sample",
+  "homepage_url": "https://www.todo.com",
+  "manifest_version": 3,
+  "author": "Alex Bogovich",
+  "permissions": [
+    "tabs",
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "content_scripts": [
+    {
+      "all_frames": false,
+      "js": [
+        "content/index.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background/index.js",
+    "type": "module"
+  },
+  "minimum_chrome_version": "92",
+  "action": {
+    "default_icon": "icon-64.png",
+    "default_title": "F",
+    "default_popup": "popup/popup.html"
+  },
+  "icons": {
+    "32": "icon-32.png",
+    "64": "icon-64.png",
+    "128": "icon-128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/*.css",
+        "assets/*.svg",
+        "content/*.css",
+        "content/*.svg",
+        "icon-24.png"
+      ],
+      "matches": ["*://*/*"]
+    }
+  ]
+}

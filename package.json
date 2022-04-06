@@ -1,0 +1,18 @@
+{
+    "name": "core-modules-samples",
+    "version": "0.0.1",
+    "private": true,
+    "description": "Core modules fetch issue manfiest v3",
+    "author": "Alex Bogovich",
+    "license": "MIT",
+    "workspaces": [
+        "src/apps/**"
+    ],
+    "engines": {
+        "node": ">16.0.0",
+        "pnpm": ">=6"
+    },
+    "scripts": {
+        "setup": "pnpm install"
+    }
+}
